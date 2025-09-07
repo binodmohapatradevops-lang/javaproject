@@ -1,0 +1,81 @@
+Thanks for the detailed update — and you're almost there!
+
+### ✅ Good News:
+
+You've **successfully authenticated via SSH** as:
+
+```
+Hi binodmohapatradevops-lang! You've successfully authenticated...
+```
+
+That means your SSH key is working **and correctly linked to the right GitHub account** (`binodmohapatradevops-lang`).
+
+---
+
+### ❌ Bad News:
+
+You're **still pushing over HTTPS** instead of SSH.
+
+That’s why Git is **still trying to use `DevopsPractice95`**, and you’re seeing this error:
+
+```
+remote: Permission to binodmohapatradevops-lang/javaproject.git denied to DevopsPractice95.
+fatal: unable to access 'https://github.com/binodmohapatradevops-lang/javaproject.git/': The requested URL returned error: 403
+```
+
+---
+
+## 🛠️ Final Fix: Update the Remote URL to SSH
+
+You’re still pushing to:
+
+```
+https://github.com/binodmohapatradevops-lang/javaproject.git
+```
+
+We need to switch it to the **SSH version**:
+
+```bash
+git@github.com:binodmohapatradevops-lang/javaproject.git
+```
+
+---
+
+### ✅ Step-by-Step
+
+#### 🔄 1. Change Remote URL to SSH:
+
+```bash
+git remote set-url origin git@github.com:binodmohapatradevops-lang/javaproject.git
+```
+
+#### 🔍 2. Confirm the change:
+
+```bash
+git remote -v
+```
+
+It should now show:
+
+```
+origin  git@github.com:binodmohapatradevops-lang/javaproject.git (fetch)
+origin  git@github.com:binodmohapatradevops-lang/javaproject.git (push)
+```
+
+#### 🚀 3. Now push:
+
+```bash
+git push origin main
+```
+
+---
+
+That should succeed now since:
+
+* You're authenticated via SSH as `binodmohapatradevops-lang`
+* You're pushing over the correct SSH connection
+
+---
+
+Let me know if the push succeeds — or if you'd like to set up multiple account support via `~/.ssh/config`.
+
