@@ -1,0 +1,23 @@
+---
+- name: Install and configure Apache
+  hosts: webservers # This refers to a group defined in your Ansible inventory file
+  become: true      # This allows the playbook to run tasks with elevated privileges (e.g., root)
+
+  tasks:
+    - name: Ensure Apache is installed
+      ansible.builtin.apt: # Using the 'apt' module for Debian-based systems
+        name: apache2
+        state: present    # Ensures the package is installed
+      when: ansible_facts['os_family'] == "Debian" # Conditional execution for Debian-based OS
+
+    - name: Ensure Apache is installed (RedHat/CentOS)
+      ansible.builtin.yum: # Using the 'yum' module for RedHat-based systems
+        name: httpd
+        state: present
+      when: ansible_facts['os_family'] == "RedHat" # Conditional execution for RedHat-based OS
+
+    - name: Ensure Apache service is running and enabled on boot
+      ansible.builtin.service:
+        name: apache2 # Use 'httpd' for RedHat/CentOS
+        state: started
+        enabled: true
