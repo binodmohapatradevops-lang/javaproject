@@ -1,3 +1,4 @@
+
 Hi, this is a sample file
 
 // Simple Java Program
@@ -33,3 +34,45 @@ public class HelloWorld {
             System.out.println("The sum is 20 or less.");
         }
     }
+
+
+# Simple Python Program
+
+# Function to add two numbers
+def add_numbers(a, b):
+    return a + b
+
+def main():
+    # Print message
+    print("Hello, Python!")
+
+    # Variables
+    num1 = 10
+    num2 = 20
+
+    # Call function
+    total = add_numbers(num1, num2)
+    print("Sum:", total)
+
+    # Loop example
+    print("Numbers from 1 to 5:")
+    for i in range(1, 6):
+        print(i)
+
+    # If-else example
+    if total > 20:
+        print("The sum is greater than 20.")
+    else:
+        print("The sum is 20 or less.")
+
+    # List example
+    fruits = ["apple", "banana", "cherry"]
+    print("Fruits list:", fruits)
+
+    # Iterating over list
+    for fruit in fruits:
+        print("I like", fruit)
+
+if __name__ == "__main__":
+    main()
+
