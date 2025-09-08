@@ -1,0 +1,14 @@
+---
+
+- name : web server
+   state : present
+   become: true
+  
+
+host = inventory.ini
+
+   task = install nginx
+   start nginx (systemctl start service)
+
+
+
